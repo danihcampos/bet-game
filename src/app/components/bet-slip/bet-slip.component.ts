@@ -10,7 +10,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 })
 export class BetSlipComponent implements OnInit {
   public selectedBalls: Ball[] = [];
-  public betForm: FormGroup = this.builForm();
+  public betForm: FormGroup = this.buildForm();
   public showValidationMessage: boolean = false;
 
   constructor(
@@ -35,7 +35,7 @@ export class BetSlipComponent implements OnInit {
     });
   }
 
-  private builForm(): FormGroup {
+  private buildForm(): FormGroup {
     const form: FormGroup = this.formBuilder.group({
       betValue: [0, [Validators.required, Validators.min(5)]],
     });

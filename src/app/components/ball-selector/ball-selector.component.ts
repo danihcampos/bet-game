@@ -35,7 +35,7 @@ export class BallSelectorComponent implements OnInit, OnDestroy {
 
   // calling for generanting the balls
   private generateBalls(): Ball[] {
-    return Utils.genarateBalls(10);
+    return Utils.genarateBalls();
   }
 
   // Ball selection

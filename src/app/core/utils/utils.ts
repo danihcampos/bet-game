@@ -8,11 +8,11 @@ export class Utils {
         return Colors[index];
     }
 
-    // return a amount of balls objects
-    public static genarateBalls(amount: number): Ball[] {
+    // return 10 balls objects
+    public static genarateBalls(): Ball[] {
         let balls: Ball[] = [];
 
-        for (let i = 0; i < amount ; i++) {
+        for (let i = 0; i < 10 ; i++) {
             balls.push({
                 id: balls.length + 1,
                 isSelected: false,
