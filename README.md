@@ -1,4 +1,4 @@
-# bet-game
+# Bet-game
 
 Developed with Angular 12.
 Requirements:
