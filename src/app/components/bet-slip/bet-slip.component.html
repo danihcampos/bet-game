@@ -1,0 +1,23 @@
+<div class="right-display">
+    <div class="card-container">
+        <p *ngIf="showValidationMessage" class="validation-message">Please, check your selection!</p>
+        <div class="balls-wrapper">
+            <li *ngFor="let item of selectedBalls" [ngStyle]="{'background-color': item.color}">
+                {{ item.id }}
+            </li>
+        </div>
+        <div class="form-wrapper">
+            <form [formGroup]="betForm" *ngIf="betForm">
+                <input type="number" formControlName="betValue" />
+                <span *ngIf="betForm.controls['betValue'].errors?.min">The minimum bet is $5</span>
+                <p class="total-value">Total: <b class="red">{{ selectedBalls.length *
+                        betForm.controls['betValue'].value }}</b></p>
+
+                <button class="submit-button" type="submit" [ngClass]="{'disabled-button': !betForm.valid}"
+                    [disabled]="!betForm.valid" (click)="placeBet()">
+                    Place Bet
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

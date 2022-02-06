@@ -1,0 +1,27 @@
+<div class="bet-display" *ngIf="!showGameResult; else gameResultTemplate">
+    <h2 class="main-text">Place your Bet!</h2>
+    <ul class="balls-list">
+        <li class="ball-item" *ngFor="let item of balls" [ngStyle]="{'background-color': item.color}"
+            [ngClass]="{'selected-ball': item.isSelected}" (click)="onSelect(item)">
+            {{ item.id }}
+        </li>
+    </ul>
+    <button class="reset-button" (click)="clearBet()">Clear Selection</button>
+</div>
+<ng-template #gameResultTemplate>
+    <div class="bet-display">
+        <h2 class="main-text">The Game is Over</h2>
+        <div class="balls-list">
+            <div class="ball-item" [ngStyle]="{'background-color': winnerBall.color}">
+                {{ winnerBall.id }}
+            </div>
+        </div>
+        <p class="result-text">You {{ gameResult.win ? 'Win! :)' : 'Lost! :('}}</p>
+        <div class="result-text-summary">
+            <p>Bet: {{ gameResult.placedBet }}</p>
+            <p>Lost: {{ gameResult.win ? 0 : gameResult.placedBet }}</p>
+            <p>Total: {{ gameResult.win ? gameResult.profit : 0 }}</p>
+        </div>
+        <button class="reset-button" (click)="resetGame()">Play Again!</button>
+    </div>
+</ng-template>
